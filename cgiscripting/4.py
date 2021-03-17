@@ -1,0 +1,20 @@
+#!"C:\Users\RIMA RAFEEK\AppData\Local\Programs\Python\Python37-32\python.exe"
+import cgi
+form = cgi.FieldStorage()
+
+first_name = form.getvalue('first_name')
+last_name = form.getvalue('last_name')
+print("Content-type:text/html\r\n\r\n")
+print('<html>')
+print('<head>')
+print('<title>My first CGI program</title>')
+print('</head>')
+print('<body>')
+print('<h2>Hello %s %s</h2>'%(first_name,last_name))
+# print("<form action='4.py' method='post'>")
+# print("First Name:<input type='text' name='first_name'></br>")
+# print("Last Name:<input type='text' name='last_name'></br>")
+# print("<input type='submit' value='Submit'>")
+print("/form")
+print("</body>")
+print("</html>")

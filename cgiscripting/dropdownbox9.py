@@ -1,0 +1,18 @@
+#!"C:\Users\RIMA RAFEEK\AppData\Local\Programs\Python\Python37-32\python.exe"
+import cgi,cgitb
+print("Content-type:text/html\r\n\r\n")
+print("<html>")
+print("<head>")
+print("<title>cgi</title>")
+print("</head>")
+print("<body>")
+print("<form action='dropdownbox9.cgi' method='post'>")
+print("select")
+print("<select name = 'dropdown'>")
+print("<option value = 'tvm' selected>trivandrum</option>")
+print("<option value = 'kochi'>kochi</option>")
+print("</select>")
+print("<input type = 'submit' value = 'Submit'/>")
+print("</form>")
+print("</body>")
+print("</html>")

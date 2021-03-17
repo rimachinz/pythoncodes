@@ -1,0 +1,65 @@
+EXTRACTION OF METADATA
+1. we import the PdfFileReader class from PyPDF2. 
+2.This class gives us the ability to read a PDF and extract data from it using various accessor methods. 
+3.The first thing we do is create our own get_info function that accepts a PDF file path as its only argument. 
+4. we open the file in read-only binary mode. 
+5.Next, we pass that file handler into PdfFileReader and create an instance of it.
+6.we can extract some information from the PDF by using the getDocumentInfo method.
+ This will return an instance of PyPDF2.pdf.DocumentInformation
+EXTRACTION OF TEXT
+1. We still need to create an instance of PdfFileReader. 
+2.But this time, we grab a page using the getPage method. 
+3.PyPDF2 is zero-based, much like most things in Python, so when you pass it a one,
+ it actually grabs the second page. 
+4.Instead, all I got was a series of line break characters. 
+Unfortunately, PyPDF2 has pretty limited support for extracting text.
+ Even if it is able to extract text, it may not be in the order you expect and the spacing may be different, as well.
+
+SPLITTER
+1.we need to import both the PdfFileReader and the PdfFileWriter.
+2. Then we create a fun little function called pdf_splitter.
+ It accepts the path of the input PDF. 
+3.The first line of this function will grab the name of the input file, minus the extension. 
+4.Next we open the PDF up and create a reader object.
+  Then we loop over all the pages using the reader object’s getNumPages method.
+5.Inside of the for loop, we create an instance of PdfFileWriter. 
+6.We then add a page to our writer object using its addPage method.
+7.This method accepts a page object, so to get the page object, 
+  we call the reader object’s getPage method. 
+8.Now, we had added one page to our writer object. 
+9.The next step is to create a unique file name, 
+which we do by using the original file name plus the word “page” plus the page number + 1. 
+We add the one because PyPDF2’s page numbers are zero-based, so page 0 is actually page 1.
+10.Finally, we open the new file name in write-binary mode and use the PDF writer object’s write method to write the object’s contents to disk.
+MERGER
+1.we create a PdfFileWriter object and several PdfFileReader objects.
+2 For each PDF path, we create a PdfFileReader object and then loop over its pages,
+ adding each and every page to our writer object. 
+3.Then we write out the writer object’s contents to disk.
+4.we just need to create the PdfFileMerger object and then loop through the PDF paths, 
+appending them to our merging object. 
+5.PyPDF2 will automatically append the entire document so you don’t need to loop through all the pages of each document
+ROTATOR
+1.Here we create our PDF reader and writer objects as before. 
+2.Then we get the first and second pages of the PDF that we passed in. 
+3.We then rotate the first page 90 degrees clockwise or to the right. 
+4.Then we rotate the second page 90 degrees counter-clockwise. 
+5.Finally, we add the third page in its normal orientation to the writer object 
+6. write out our new three-page PDF file.
+WATERMARKER
+1.The first thing we do here is extract the watermark page from the PDF.
+2.Then we open the PDF that we want to apply the watermark to. 
+3.We use a for loop to iterate over each of its pages and 
+ call the page object’s mergePage method to apply the watermark. 
+4.Next we add that watermarked page to our PDF writer object.
+ Once the loop finishes, we write our new watermarked version out to disk.
+ENCRYPTION
+1.The PyPDF2 package also supports adding a password and encryption to your existing PDFs.
+ PDFs support a user password and an owner password.
+2. The user password only allows the user to open and read a PDF, 
+but may have some restrictions applied to the PDF that could prevent the user from printing, 
+3.If you open the PDF, you will find that the first two pages are now rotated in opposite directions 
+of each other with the third page in its normal orientation.
+All we did here was create a set of PDF reader and write objects and 
+read all the pages with the reader. 
+Then we added those pages out to the specified writer object and added the specified password. 
