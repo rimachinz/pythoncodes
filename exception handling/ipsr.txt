@@ -1,0 +1,3 @@
+ipsr
+lcm
+hcf
