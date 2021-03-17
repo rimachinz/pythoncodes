@@ -1,0 +1,35 @@
+Data Visualisation
+-impactive
+-efective
+-attractive
+matplotlib
+1.artist-ticks,images,title lines
+2 types. Primitive-line 2D,rectangle
+	 composite-axes,ticks,axes,figure
+2.script-use .pyplot
+Jupyter notebook is an open source web application that allows you to
+create and share documents that contain live code visualizations and some
+explanatory text as well
+Pandas-plot data in dataframe using .plot(kind='hist')
+Lineplot-plot in the form of a series of data points connected by straight line
+segments.
+used when you have a continuous dataset and for visualizing the data over a period of time
+Pandas is a Python package working with “relational” or “labeled” data .
+pandas* is an essential data analysis toolkit for Python wrangling, analysis, and visualization
+pip install xlrd to allow read_excel
+df_can.head()
+# tip: You can specify the number of rows you'd like to see as follows: df_can.head(10) 
+df_can.tail()
+df_can.info()   information about your dataframe.
+df_can.columns.values #col header
+df_can.index.values
+df_can.columns.tolist()
+df_can.index.tolist()
+?
+print (type(df_can.columns.tolist()))#type changed to list
+print (type(df_can.index.tolist()))
+df_can.shape    # size of dataframe (rows, columns)
+# in pandas axis=0 represents rows (default) and axis=1 represents columns.
+df_can.drop(['AREA','REG','DEV','Type','Coverage'], axis=1, inplace=True)
+df_can.head(2)
+
